@@ -16,10 +16,21 @@ namespace ElevenNote.WebMVC.Controllers
             var model = new NoteListItem[0];
             return View();
         }
-        // Get"Note/Create
+        // Get: Note/Create
         public ActionResult Create()
         {
             return View();
+        }
+        //Post: Note/Create
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(NoteCreate model)
+        {
+            if (ModelState.IsValid)
+            {
+
+            }
+            return View(model);
         }
     }
 }
