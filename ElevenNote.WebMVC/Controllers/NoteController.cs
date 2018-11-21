@@ -16,5 +16,10 @@ namespace ElevenNote.WebMVC.Controllers
             var model = new NoteListItem[0];
             return View();
         }
+        // Get"Note/Create
+        public ActionResult Create()
+        {
+            return View();
+        }
     }
 }
