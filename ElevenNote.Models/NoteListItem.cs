@@ -17,5 +17,7 @@ namespace ElevenNote.Models
 
         public override string ToString() => Title;
 
+        [UIHint("Starred")]
+        public bool IsStarred { get; set; }
     }
 }
