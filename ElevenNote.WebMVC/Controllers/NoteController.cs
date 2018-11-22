@@ -46,7 +46,7 @@ namespace ElevenNote.WebMVC.Controllers
            
                 return View(model);
         }
-        // Get" Note/Details
+        // Get: Note/Details
         public ActionResult Details(int id)
         {
             var svc = CreateNoteService();
@@ -98,6 +98,28 @@ namespace ElevenNote.WebMVC.Controllers
             var service = new NoteService(userId);
             return service;
         }
+        // Get: Note/Delete
+        [ActionName("Delete")]
+        public ActionResult Delete(int id)
+        {
+            var svc = CreateNoteService();
+            var model = svc.GetNoteById(id);
 
+            return View(model);
+        }
+        // Post: Note/Delete
+        [HttpPost]
+        [ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeletePost(int id)
+        {
+            var service = CreateNoteService();
+
+            service.DeleteNote(id);
+
+            TempData["SaveResult"] = "Your note was deleted";
+
+            return RedirectToAction("Index");
+        }
     }
 }
