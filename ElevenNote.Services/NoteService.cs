@@ -24,6 +24,7 @@ namespace ElevenNote.Services
                 {
                     OwnerId = _userId,
                     Title = model.Title,
+                    Subject = model.Subject,
                     Content = model.Content,
                     CreatedUtc = DateTimeOffset.Now
                 };
@@ -48,6 +49,7 @@ namespace ElevenNote.Services
                         {
                             NoteId = e.NoteId,
                             Title = e.Title,
+                            Subject = e.Subject,
                             IsStarred = e.IsStarred,
                             CreatedUtc = e.CreatedUtc
                         }
@@ -85,6 +87,7 @@ namespace ElevenNote.Services
                     .Single(e => e.NoteId == model.NoteId && e.OwnerId == _userId);
                 entity.Title = model.Title;
                 entity.Content = model.Content;
+                entity.Subject = model.Subject;
                 entity.ModifiedUtc = DateTimeOffset.UtcNow;
 
                 return ctx.SaveChanges() == 1;

@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace ElevenNote.Data
 {
+    public enum SubjectType {Personal = 1, Professional, General, Goofy};
     public class Note
     {
         [Key]
@@ -18,6 +19,9 @@ namespace ElevenNote.Data
 
         [Required]
         public string Title { get; set; }
+
+        [Required]
+        public SubjectType Subject { get; set; }
 
         [Required]
         public string Content { get; set; }
