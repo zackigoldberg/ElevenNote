@@ -26,7 +26,8 @@ namespace ElevenNote.Services
                     Title = model.Title,
                     Subject = model.Subject,
                     Content = model.Content,
-                    CreatedUtc = DateTimeOffset.Now
+                    CreatedUtc = DateTimeOffset.Now,
+                    IsStarred = model.IsStarred
                 };
 
             using (var ctx = new ApplicationDbContext())
@@ -73,7 +74,8 @@ namespace ElevenNote.Services
                         Title = entity.Title,
                         Content = entity.Content,
                         CreatedUtc = entity.CreatedUtc,
-                        ModifiedUtc = entity.ModifiedUtc
+                        ModifiedUtc = entity.ModifiedUtc,
+                        IsStarred = entity.IsStarred
                     };
             }
         }
@@ -88,6 +90,7 @@ namespace ElevenNote.Services
                 entity.Title = model.Title;
                 entity.Content = model.Content;
                 entity.Subject = model.Subject;
+                entity.IsStarred = model.IsStarred;
                 entity.ModifiedUtc = DateTimeOffset.UtcNow;
 
                 return ctx.SaveChanges() == 1;

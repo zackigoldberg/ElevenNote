@@ -12,6 +12,8 @@ namespace ElevenNote.Models
     {
         public int NoteId { get; set; }
         public string Title { get; set; }
+
+        [Display(Name = "Subject")]
         public SubjectType Subject { get; set; }
 
         [Display(Name = "Created")]
@@ -20,6 +22,7 @@ namespace ElevenNote.Models
         public override string ToString() => Title;
 
         [UIHint("Starred")]
+        [Display(Name ="Imporant")]
         public bool IsStarred { get; set; }
     }
 }
